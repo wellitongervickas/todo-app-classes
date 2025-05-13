@@ -23,11 +23,11 @@
 
         </div>
     </header>
-    <main class="flex-grow flex flex-col gap-4">
+    <main class="flex-grow flex flex-col gap-8">
         <section>
             <h1 class="text-2xl font-medium">Hey there,</h1>
             <p>Organize your plans for the days</p>
-        </div>
+        </section>
         <section class="flex gap-4 flex-col">
             <h2 class="font-medium">Categories</h2>
             <ul class="flex gap-4 items-center justify-between">
@@ -82,9 +82,89 @@
                 </li>
             </ul>
         </section>
+
+        <!-- MODAL CONTENT -->
+         
+        <div class="absolute inset-0 bg-white flex flex-col gap-8 justify-between">
+            <div class="px-8 pt-8">
+                <button type="button" >
+                    <span class="hidden">close</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                    </svg>
+                </button>
+            </div>
+            <section class="flex-1 px-8 pb-8 flex flex-col gap-4">
+                <h3 class="text-2xl font-medium">Add Task</h3>
+                <form class="flex flex-col gap-4 justify-between flex-1">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label for="label" class="font-medium">Label</label>
+                            <input 
+                                type="text" 
+                                name="label" 
+                                id="label" 
+                                placeholder="label"
+                                class="bg-gray-200 px-4 py-5 rounded-xl"
+                            />
+                        </div>
+                        <fieldset class="flex flex-col gap-2">
+                            <legend class="hidden">Time</legend>
+                            <div class="flex gap-4">
+                                <div class="flex flex-col gap-2 w-full">
+                                    <label for="start" class="font-medium">start</label>
+                                    <select 
+                                        name="start"
+                                        id="start"
+                                        class="bg-gray-200 px-4 py-5 rounded-xl"
+                                    >
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00" selected>09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-col gap-2 w-full">
+                                    <label for="end" class="font-medium">end</label>
+                                    <select name="end" id="end"
+                                        class="bg-gray-200 px-4 py-5 rounded-xl"
+                                    >
+                                        <option value="08:00">08:00</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00" selected>10:00</option>
+                                        <option value="11:00">11:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 flex-col">
+                                <label for="repeat" class="font-medium">repeat</label>
+                                <select name="repeat" id="repeat"
+                                    class="bg-gray-200 px-4 py-5 rounded-xl"
+                                >
+                                    <option value="never">never</option>
+                                    <option value="daily">daily</option>
+                                    <option value="weekly" selected>weekly</option>
+                                    <option value="monthly">monthly</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button 
+                        id="save-task-btn"
+                        type="button"
+                        class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out
+                        w-full
+                        "
+                    >
+                        save task
+                    </button>
+                </form>
+            </section>
+        </div>
     </main>
     <footer>
         <button 
+            id="add-task-btn"
             type="button"
             class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out
             w-full
