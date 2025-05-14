@@ -7,6 +7,7 @@
     <title>ToDo App</title>
 </head>
 <body class="flex flex-col min-h-screen p-8 gap-8">
+
     <header class="flex justify-between items-center gap-4">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -71,23 +72,24 @@
         </div>
         <section class="flex gap-4 flex-col">
             <h2 class="font-medium">Today's tasks</h2>
-            <ul>
-                <li>
-                    <div class="bg-gray-200 p-6 rounded-lg flex items-center justify-between">
-                        <div class="flex gap-4 items-center">
-                            <input type="checkbox" id="task1" class="size-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
-                            <label for="task1" class="font-medium">Task 1</label>
-                        </div>
+            <ul id="tasks-list" class="flex flex-col gap-4">
+                <!-- <li class="bg-gray-200 p-6 rounded-lg flex items-center justify-between">
+                    <div class="flex gap-4 items-center">
+                        <input type="checkbox" id="task1" class="size-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+                        <label for="task1" class="font-medium">Task 1</label>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </section>
 
         <!-- MODAL CONTENT -->
          
-        <div class="absolute inset-0 bg-white flex flex-col gap-8 justify-between">
+        <div 
+            id="add-task-modal"
+            class="absolute inset-0 bg-white flex flex-col gap-8 justify-between hidden"
+        >
             <div class="px-8 pt-8">
-                <button type="button" >
+                <button type="button" id="add-task-modal-close-btn">
                     <span class="hidden">close</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -96,7 +98,7 @@
             </div>
             <section class="flex-1 px-8 pb-8 flex flex-col gap-4">
                 <h3 class="text-2xl font-medium">Add Task</h3>
-                <form class="flex flex-col gap-4 justify-between flex-1">
+                <form id="add-task-modal-form" class="flex flex-col gap-4 justify-between flex-1">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-2">
                             <label for="label" class="font-medium">Label</label>
@@ -151,10 +153,8 @@
                     </div>
                     <button 
                         id="save-task-btn"
-                        type="button"
-                        class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out
-                        w-full
-                        "
+                        type="submit"
+                        class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out w-full"
                     >
                         save task
                     </button>
@@ -166,12 +166,12 @@
         <button 
             id="add-task-btn"
             type="button"
-            class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out
-            w-full
-            "
+            class="bg-sky-500 text-white py-2 px-4 rounded-md hover:bg-sky-600 transition duration-200 ease-in-out w-full"
         >
             + add new task
         </button>
     </footer>
+    <script type="text/javascript" src="./src/scripts.js"></script>
+   
 </body>
 </html>
